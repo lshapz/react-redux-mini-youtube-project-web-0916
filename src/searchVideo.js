@@ -7,9 +7,10 @@ export default function SearchVideo(props){
     //alert('hello')
     event.preventDefault()
     const searchTerm = event.target.children[0].children[1].value
+  
+    debugger
     // props.triggerSearch.default(searchTerm)
-    setTimeout(() => {props.dispatch(props.action(searchTerm))}, 5000)
-debugger
+    props.actions(searchTerm)
   }
 
 

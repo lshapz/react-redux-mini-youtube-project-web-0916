@@ -6,9 +6,12 @@ var videos = props.videos.map((vid, idx)=>{
 
 
 return(
-  <ul>{videos}</ul>
+  <ul>{props.videos.map((item, index)=>{
+  return <li key={index}><a href="{item[1]}">Link</a></li>
+
+  })}</ul>
   )
 
 }
-show.defaultProps = {videos: [1, 'https://www.youtube.com/watch?v=wRP6egIEABk']}
+show.defaultProps = {videos: [[1, 'https://www.youtube.com/watch?v=wRP6egIEABk']]}
 export default show

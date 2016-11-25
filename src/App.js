@@ -3,7 +3,7 @@ import './App.css';
 import Search from './searchVideo'
 import Display from './display'
 import {connect} from 'react-redux';
-import * as actionCreators from './actions'
+import * as actions from './actions'
 import {bindActionCreators} from 'redux'
 
 
@@ -14,8 +14,8 @@ class App extends Component {
     return (
       <div className="App">
         App goes here
-        <Search dispatch={this.props.store.dispatch} action={actionCreators.default} />
-        <Display videos={this.props.videos} />
+        <Search actions={this.props.actions} action={actions.default} />
+        <Display videos={this.props.videos}/>
 
       </div>
     );
@@ -27,14 +27,13 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
-  return {videos: state.reducer}
+  return {videos: state.videos}
 }
-
 function mapDispatchToProps(dispatch) {
-  
-  var fetch = actionCreators.default
-  // debugger
-  return {actions: bindActionCreators(fetch, dispatch)}
+    return {actions: bindActionCreators(actions, dispatch)}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+const connector = connect(mapStateToProps, mapDispatchToProps)
+const connectedComponent = connector(App)
+
+export default connectedComponent;
