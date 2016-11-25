@@ -3,7 +3,7 @@ import './App.css';
 import Search from './searchVideo'
 import Display from './display'
 import {connect} from 'react-redux';
-import * as actions from './actions'
+import {fetchVideos, fetchVideosFailure, fetchVideosSuccess} from './actions'
 import {bindActionCreators} from 'redux'
 
 
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         App goes here
-        <Search actions={this.props.actions} action={actions.default} />
+        <Search actions={this.props.actions} />
         <Display videos={this.props.videos}/>
 
       </div>
@@ -30,7 +30,8 @@ function mapStateToProps(state) {
   return {videos: state.videos}
 }
 function mapDispatchToProps(dispatch) {
-    return {actions: bindActionCreators(actions, dispatch)}
+  // debugger
+    return {actions: bindActionCreators({fetchVideos: fetchVideos, fetchVideosFailure: fetchVideosFailure, fetchVideosSuccess: fetchVideosSuccess}, dispatch)}
 }
 
 const connector = connect(mapStateToProps, mapDispatchToProps)

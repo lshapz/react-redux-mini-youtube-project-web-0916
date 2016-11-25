@@ -8,9 +8,9 @@ export default function SearchVideo(props){
     event.preventDefault()
     const searchTerm = event.target.children[0].children[1].value
   
-    debugger
+    // debugger
     // props.triggerSearch.default(searchTerm)
-    props.actions(searchTerm)
+    props.actions.fetchVideos(searchTerm)
   }
 
 
