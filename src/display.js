@@ -1,7 +1,7 @@
 import React from 'react'
-export default function ShowVideo(props){
+const show = function ShowVideo(props){
 var videos = props.videos.map((vid, idx)=>{
-  <li key={idx}>{vid}</li>
+  <li key={idx}><a href="{vid}">video</a></li>
 })
 
 
@@ -10,3 +10,5 @@ return(
   )
 
 }
+show.defaultProps = {videos: [1, 'https://www.youtube.com/watch?v=wRP6egIEABk']}
+export default show

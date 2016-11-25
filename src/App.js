@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         App goes here
-        <Search triggerSearch={this.props.store} things={actionCreators} />
+        <Search dispatch={this.props.store.dispatch} action={actionCreators.default} />
         <Display videos={this.props.videos} />
 
       </div>
@@ -32,8 +32,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   
-  var fetch = actionCreators
-  debugger
+  var fetch = actionCreators.default
+  // debugger
   return {actions: bindActionCreators(fetch, dispatch)}
 }
 
