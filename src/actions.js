@@ -2,22 +2,25 @@ import axios from 'axios'
 const API_KEY = 'AIzaSyCVhtKbqqUK6f56QCySSGZ4qvhOf9rWXDM'
 const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search'
 
- const FETCH_VIDEOS = 'FETCH_POSTS';
- const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
+  const FETCH_VIDEOS = 'FETCH_POSTS';
+  const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
+  const NEW_PRIMARY = 'NEW_PRIMARY'
+export function requestVideos(searchTerm) { 
+  return {type: FETCH_VIDEOS, payload: searchTerm}
+}
 
-export function requestVideos(searchTerm) 
+export function newPrimary(id){
+  return {type: NEW_PRIMARY, payload: id}
+}
 
-{ 
-  return {type: FETCH_VIDEOS, payload: searchTerm}}
+export function receiveVideos(json) {
 
+  return {type: RECEIVE_VIDEOS, payload: json}
+}
 
-export function receiveVideos(json) 
-{
-  return {type: RECEIVE_VIDEOS, payload: json}}
-
-
-export function fetchVideos(searchTerm) 
-{ return function(dispatch) 
+export function fetchVideos(searchTerm) { 
+  
+  return function(dispatch) 
   {
     dispatch(requestVideos(searchTerm))
     return axios({
@@ -28,6 +31,8 @@ export function fetchVideos(searchTerm)
   }
 
 }
+
+// maybe do the mapping you do in display here in fetch Videos, and add a key called primary that returns a boolean, and if it is the primary video then it gets the big vid treatment?
 
 // function shouldFetchVideos(state) {
 //   if (typeof state.videos === 'string' && state.isFetching === false) {
