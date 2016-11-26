@@ -2,7 +2,11 @@
   margin: 20px;
   text-align: center;
 }
-
+.big {
+  height: 500px; 
+  width: 800px;
+  border: solid 4px #37474F;
+}
 .search-bar input {
   width: 75%;
 }

@@ -26,37 +26,46 @@ import {bindActionCreators} from 'redux'
 class App extends Component {
  constructor(props){
   super(props)
+
+  this.bigger = this.bigger.bind(this)
   this.submitItemForm = this.submitItemForm.bind(this)
   // this.fetchVideos = this.fetchVideos.bind(this)
  }
 
- // fetchVideos() {
- //  var vids = axios({
- //    method: 'get',
- //    url: `${ROOT_URL}/?q=mountain+goats&part=snippet&key=${API_KEY}`,
- //    headers: []
- //  }).then((response)=>{ return JSON.parse(response)})
- //  debugger
- //  return vids
- //  }
+ 
+ 
   submitItemForm(event){
     //alert('hello')
     event.preventDefault()
     const searchTerm = event.target.children[0].children[1].value
     
-  
     // props.triggerSearch.default(searchTerm)
     this.props.dispatch(fetchVideos(searchTerm))
 
   }
 
+  bigger(event){
+    event.preventDefault()
+    var iframe = event.target.parentElement.children[1]
+    
+    if (iframe.attributes.hasOwnProperty('hidden'))
+      {iframe.removeAttribute('hidden')}
+    else {iframe.setAttribute('hidden', 'true')}
+    // if event.target.
+    
+    // if (event.target.tagName === 'IMG'){
+    //  return 
+    // }
+
+  }
+
   render() {
-    debugger
+    
     return (
       <div className="App">
         App goes here
         <Search submitItemForm={this.submitItemForm} actions={this.props.actions} dispatch={this.props.dispatch} />
-        <Display videos={this.props.videos.videos} />
+        <Display videos={this.props.videos.videos} toggleHidden={this.bigger} />
         
       </div>
     );

@@ -8,13 +8,16 @@ const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search'
  // const FETCH_VIDEOS_FAILURE = 'FETCH_POSTS_FAILURE';
 
 export function requestVideos(searchTerm) 
-{return {type: FETCH_VIDEOS, payload: searchTerm}}
+{ debugger
+  return {type: FETCH_VIDEOS, payload: searchTerm}}
+
 
 export function receiveVideos(json) 
-{return {type: RECEIVE_VIDEOS, payload: json}}
+{
+  return {type: RECEIVE_VIDEOS, payload: json}}
 
 
-export function fetchVideos(state, searchTerm) 
+export function fetchVideos(searchTerm) 
 { return function(dispatch) 
   {
     dispatch(requestVideos(searchTerm))
@@ -24,6 +27,7 @@ export function fetchVideos(state, searchTerm)
     headers: []
   }).then(response=>{dispatch(receiveVideos(response.data.items))})
   }
+
 }
 
 function shouldFetchVideos(state) {
