@@ -6,22 +6,19 @@ import {connect} from 'react-redux';
 import {fetchVideos} from './actions'
 
 class App extends Component {
- constructor(props){
-  super(props)
-
-  this.bigger = this.bigger.bind(this)
-  this.submitItemForm = this.submitItemForm.bind(this)
- }
-
+  constructor(props){
+    super(props)
+    this.showIframe = this.showIframe.bind(this)
+    this.searchVids = this.searchVids.bind(this)
+  }
  
- 
-  submitItemForm(event){
+  searchVids(event){
     event.preventDefault()
     const searchTerm = event.target.children[0].children[1].value
     this.props.dispatch(fetchVideos(searchTerm))
   }
 
-  bigger(event){
+  showIframe(event){
     event.preventDefault()    
     let iframe 
     if (event.target.tagName === 'IMG'){
@@ -37,17 +34,15 @@ class App extends Component {
     if (iframe.attributes.hasOwnProperty('hidden'))
       {iframe.removeAttribute('hidden')}
     else {iframe.setAttribute('hidden', 'true')}
-
-
   }
 
   render() {
-    
     return (
       <div className="App">
-        App goes here
-        <Search submitItemForm={this.submitItemForm} actions={this.props.actions} dispatch={this.props.dispatch} />
-        <Display videos={this.props.videos.videos} toggleHidden={this.bigger} />
+        <h1> SEARCH YOUTUBE FOR SOME VIDEOS OR WHATEVER </h1>
+
+        <Search submitItemForm={this.searchVids} />
+        <Display videos={this.props.videos.videos} toggleHidden={this.showIframe} />
         
       </div>
     );
