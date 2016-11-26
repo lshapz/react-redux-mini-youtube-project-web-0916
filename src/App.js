@@ -50,7 +50,7 @@ class App extends Component {
   render() {
     // debugger
     return (
-      <div className="App">
+      <div className="app">
         <h1> SEARCH YOUTUBE FOR SOME VIDEOS OR WHATEVER </h1>
         <Search submitItemForm={this.searchVids} />
         <Display videos={this.props.videos} newBig={this.bigVid} /> 

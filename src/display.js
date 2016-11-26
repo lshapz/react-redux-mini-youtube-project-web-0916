@@ -7,8 +7,8 @@ export default function ShowVideo(props){
  
  var show = props.videos.filter(vid=>{return vid.primary === false}).map((vid, index) =>{
   return <div key={index} onClick={props.newBig} id={vid.id}>
-          <h4 id={vid.id}>{vid.title}</h4>
-          <img className={"video-item " + vid.id } id={vid.id} src={vid.thumb} alt={vid.title} />
+<p id={vid.id}>{vid.title}</p>
+<p id={vid.id}><img className={"video-item " + vid.id } id={vid.id} src={vid.thumb} alt={vid.title} /></p>
          </div>
  })
 
@@ -16,13 +16,16 @@ export default function ShowVideo(props){
 
 // debugger
 return (
-  <div>
+  <div id="container"> 
+  <div id="big">
             <iframe className="video-detail"
               width="640" height="360"
               src={'https://www.youtube.com/embed/'+ big_id } />
 
-  <br /> 
+  </div>
+  <div className="thumb"> 
     {show}
+  </div>
   </div>
   )
 }

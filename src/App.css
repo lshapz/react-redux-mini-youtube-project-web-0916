@@ -1,24 +1,36 @@
-body {
+#big {
+  float: left;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+.thumb{
+  float: right;
+  text-align: right;
+  margin-right: 5%;
+}
+.app {
   text-align: center;
 }
-
 .search-bar {
   margin: 20px;
   text-align: center;
+  margin-left: 5%
 }
-.big {
+/*.big {
   height: 500px; 
   width: 800px;
   margin-bottom: 15px;
-}
-
-.search-bar input {
+}*/
+/*
+.search-bar input label {
   width: 75%;
-}
+    text-align: center;
+
+  margin-left: 5%
+}*/
 
 .video-item img {
   max-width: 64px;
-  float: left;
 }
 
 .video-detail .details {
