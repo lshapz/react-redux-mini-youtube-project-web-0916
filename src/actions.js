@@ -2,13 +2,12 @@ import axios from 'axios'
 const API_KEY = 'AIzaSyCVhtKbqqUK6f56QCySSGZ4qvhOf9rWXDM'
 const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search'
 
-// import { createAction } from 'redux-actions'
  const FETCH_VIDEOS = 'FETCH_POSTS';
  const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
- // const FETCH_VIDEOS_FAILURE = 'FETCH_POSTS_FAILURE';
 
 export function requestVideos(searchTerm) 
-{ debugger
+
+{ 
   return {type: FETCH_VIDEOS, payload: searchTerm}}
 
 
@@ -30,24 +29,24 @@ export function fetchVideos(searchTerm)
 
 }
 
-function shouldFetchVideos(state) {
-  if (typeof state.videos === 'string' && state.isFetching === false) {
-    return true
-  } else if (state.isFetching) {
-    return false
-  } 
-}
+// function shouldFetchVideos(state) {
+//   if (typeof state.videos === 'string' && state.isFetching === false) {
+//     return true
+//   } else if (state.isFetching) {
+//     return false
+//   } 
+// }
 
-export function fetchVideosIfNeeded(dispatch, getState, searchTerm){
+// export function fetchVideosIfNeeded(dispatch, getState, searchTerm){
 
-    if (shouldFetchVideos(getState().videos, searchTerm)) {
-      // Dispatch a thunk from thunk!
-      return dispatch(fetchVideos(searchTerm))
-    } else {
-      // Let the calling code know there's nothing to wait for.
-      return Promise.resolve()
-    }
-  }
+//     if (shouldFetchVideos(getState().videos, searchTerm)) {
+//       // Dispatch a thunk from thunk!
+//       return dispatch(fetchVideos(searchTerm))
+//     } else {
+//       // Let the calling code know there's nothing to wait for.
+//       return Promise.resolve()
+//     }
+//   }
 
 
 
@@ -82,9 +81,6 @@ export function fetchVideosIfNeeded(dispatch, getState, searchTerm){
 //     payload: error
 //   };
 // }
-
-
-
 
 
 

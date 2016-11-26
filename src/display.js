@@ -4,18 +4,18 @@ export default function ShowVideo(props){
 
 
  var vidz = props.videos.map((vid)=>{
-  if (vid.id.kind == "youtube#video"){
-    return {id: vid.id.videoId, thumb: vid.snippet.thumbnails.default.url}
+  if (vid.id.kind === "youtube#video"){
+    return {id: vid.id.videoId, thumb: vid.snippet.thumbnails.default.url, title: vid.snippet.title}
   }
 })
- 
- 
-
+ // alt={} 
  var show = vidz.map((vid, index) =>{
-  return <div key={index} onClick={props.toggleHidden} className="big"><img className="video-item" id={vid.id} src={vid.thumb}  />
-  <iframe hidden className="video-detail"
+  return <div key={index} onClick={props.toggleHidden} className="big">
+  <p>{vid.title}</p>
+<p><img className="video-item" id={vid.id} src={vid.thumb} alt={vid.title} /></p>
+<iframe hidden className="video-detail"
         width="640" height="360"
-        src={'https://www.youtube.com/embed/'+ vid.id }></iframe>
+        src={'https://www.youtube.com/embed/'+ vid.id } />
   </div>
  })
 

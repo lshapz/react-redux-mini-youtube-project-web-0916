@@ -1,18 +1,7 @@
 import React from 'react'
-// import fetchVideos from './actions'
 
 export default function SearchVideo(props){
   
-  // function submitItemForm(event){
-  //   //alert('hello')
-  //   event.preventDefault()
-  //   const searchTerm = event.target.children[0].children[1].value
-    
-  
-  //   // props.triggerSearch.default(searchTerm)
-  //   props.dispatch(props.actions.fetchVideosIfNeeded(searchTerm))
-
-  // }
 
 
 return(

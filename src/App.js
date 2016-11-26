@@ -3,25 +3,7 @@ import './App.css';
 import Search from './searchVideo'
 import Display from './display'
 import {connect} from 'react-redux';
-import {requestVideos, receiveVideos, fetchVideos, fetchVideosIfNeeded} from './actions'
-import {bindActionCreators} from 'redux'
-// const API_KEY = 'AIzaSyCVhtKbqqUK6f56QCySSGZ4qvhOf9rWXDM'
-// const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search'
-// import axios from 'axios'
-// const axios = require("axios")
-
-// const API_KEY = 'AIzaSyCVhtKbqqUK6f56QCySSGZ4qvhOf9rWXDM'
-// const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search'
-// var vids = []
-// function thing(){ 
-//     axios({
-//     method: 'get',
-//     url: `${ROOT_URL}/?q=mountain+goats&part=snippet&key=${API_KEY}`,
-//     headers: []
-//   }).then(response=>{return [response.data.items[0].snippet.thumbnails.default.url, response.data.items[0].id.videoId]})}
-// thing()
-
-
+import {fetchVideos} from './actions'
 
 class App extends Component {
  constructor(props){
@@ -29,33 +11,33 @@ class App extends Component {
 
   this.bigger = this.bigger.bind(this)
   this.submitItemForm = this.submitItemForm.bind(this)
-  // this.fetchVideos = this.fetchVideos.bind(this)
  }
 
  
  
   submitItemForm(event){
-    //alert('hello')
     event.preventDefault()
     const searchTerm = event.target.children[0].children[1].value
-    
-    // props.triggerSearch.default(searchTerm)
     this.props.dispatch(fetchVideos(searchTerm))
-
   }
 
   bigger(event){
-    event.preventDefault()
-    var iframe = event.target.parentElement.children[1]
-    
+    event.preventDefault()    
+    let iframe 
+    if (event.target.tagName === 'IMG'){
+        iframe = event.target.parentElement.parentElement.children[2]
+        }
+      else if (event.target.tagName === 'DIV'){
+        iframe = event.target.children[2]
+      }
+      else if (event.target.tagName === 'P')
+      {
+        iframe = event.target.parentElement.children[2]
+      }
     if (iframe.attributes.hasOwnProperty('hidden'))
       {iframe.removeAttribute('hidden')}
     else {iframe.setAttribute('hidden', 'true')}
-    // if event.target.
-    
-    // if (event.target.tagName === 'IMG'){
-    //  return 
-    // }
+
 
   }
 
@@ -72,18 +54,11 @@ class App extends Component {
   }
 }
 
-// export default App;
-
 
 
 function mapStateToProps(state) {
   return {videos: state.videos}
 }
-
-// function mapDispatchToProps(dispatch){
-//   return {actions: bindActionCreators({}, dispatch)}
-
-// }
 
 const connector = connect(mapStateToProps)
 const connectedComponent = connector(App)

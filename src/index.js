@@ -4,7 +4,6 @@ import App from './App';
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './store'
-import * as actions from './actions'
 
 
 
