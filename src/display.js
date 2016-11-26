@@ -1,14 +1,11 @@
 import React from 'react'
-
 export default function ShowVideo(props){
 
-
  var vidz = props.videos.map((vid)=>{
-  if (vid.id.kind === "youtube#video"){
     return {id: vid.id.videoId, thumb: vid.snippet.thumbnails.default.url, title: vid.snippet.title}
-  }}).filter(vid=>{return vid != undefined})
+  }).filter(vid=>{return vid !== undefined})
+
  var show = vidz.map((vid, index) =>{
-  debugger
   return <div key={index} onClick={props.toggleHidden} className="big">
          <p>{vid.title}</p>
          <p><img className="video-item" id={vid.id} src={vid.thumb} alt={vid.title} /></p>
@@ -20,9 +17,8 @@ export default function ShowVideo(props){
 
 
 return (
-
   <div>
-  {show}
+    {show}
   </div>
   )
 }

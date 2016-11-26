@@ -1,6 +1,4 @@
 import { combineReducers } from 'redux'
-// import {requestVideos, receiveVideos}  from './actions'
-
 
 function videos(state = { videos: []}, action) 
   {
@@ -14,8 +12,6 @@ function videos(state = { videos: []}, action)
        return state
     }
   } 
-
-
 
 const rootReducer = combineReducers({videos})
 

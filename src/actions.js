@@ -22,7 +22,7 @@ export function fetchVideos(searchTerm)
     dispatch(requestVideos(searchTerm))
     return axios({
     method: 'get',
-    url: `${ROOT_URL}/?q=${searchTerm}&part=snippet&key=${API_KEY}`,
+    url: `${ROOT_URL}/?q=${searchTerm}&part=snippet&key=${API_KEY}+&type=video`,
     headers: []
   }).then(response=>{dispatch(receiveVideos(response.data.items))})
   }
@@ -36,9 +36,7 @@ export function fetchVideos(searchTerm)
 //     return false
 //   } 
 // }
-
 // export function fetchVideosIfNeeded(dispatch, getState, searchTerm){
-
 //     if (shouldFetchVideos(getState().videos, searchTerm)) {
 //       // Dispatch a thunk from thunk!
 //       return dispatch(fetchVideos(searchTerm))
@@ -47,49 +45,35 @@ export function fetchVideos(searchTerm)
 //       return Promise.resolve()
 //     }
 //   }
-
-
-
-
 // const fetchVideos = searchTerm => dispatch => {
 //   dispatch(requestVideos(searchTerm))
 //   return fetch(`${ROOT_URL}/?q=${searchTerm}&part=snippet&key=${API_KEY}`)
 //     .then(response => response.json())
 //     .then(json=>dispatch(getVideos(searchTerm, json)))
 // }
-
 // export const getVideos = (reddit, json) => ({
 //   type: 'GET_VIDEOS', videos: json.data.items
 // })
-
 // export function fetchVideos(searchTerm) {
 //   const request = 
 //   return {type: FETCH_VIDEOS, payload: request}
 // // .then({type: FETCH_VIDEOS, payload: })
 // }
-
 // export function fetchVideosSuccess(posts) {
 //   return {
 //     type: FETCH_VIDEOS_SUCCESS,
 //     payload: posts
 //   };
 // }
-
 // export function fetchVideosFailure(error) {
 //   return {
 //     type: FETCH_VIDEOS_FAILURE,
 //     payload: error
 //   };
 // }
-
-
-
 // // function youtube(searchTerm){
- 
 // //   return axios.get(`https://www.googleapis.com/youtube/v3/search?q=)
-
 // // }
-
 // // export default function fetchVideos(searchTerm){
 //   return {
 //     type: 'FETCH_VIDEOS',

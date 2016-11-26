@@ -17,7 +17,7 @@ body {
 
 .video-item img {
   max-width: 64px;
-  position: absolute;
+  float: left;
 }
 
 .video-detail .details {
