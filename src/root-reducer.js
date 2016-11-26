@@ -1,20 +1,33 @@
 import { combineReducers } from 'redux'
-import {FETCH_VIDEOS, FETCH_VIDEOS_SUCCESS, FETCH_VIDEOS_FAILURE, fetchVideos, fetchVideosSuccess, fetchVideosFailure}  from './actions'
-
-function reducer(state = [], action){
-  switch (action.type) {
-  case FETCH_VIDEOS:// start fetching posts and set loading = true
-    return  [...state, action.payload ]; 
-  case FETCH_VIDEOS_SUCCESS:// return list of posts and make loading = false
-    return [ ...state, action.payload ];
-  case FETCH_VIDEOS_FAILURE:// return error and make loading = false
-    return [...state, action.payload ];
-  default:
-    return state
-  }
-}
+import {requestVideos, receiveVideos}  from './actions'
+ // const FETCH_VIDEOS_SUCCESS = 'FETCH_POSTS_SUCCESS';
+ // const FETCH_VIDEOS_FAILURE = 'FETCH_POSTS_FAILURE';
 
 
-const rootReducer = combineReducers({reducer})
+// function reducer(state = [], action){
+//   switch (action.type) {
+//   case FETCH_VIDEOS:// start fetching posts and set loading = true
+//     return  [...state, action.payload ]; 
+//   default:
+//     return state
+//   }
+// }
+
+function videos(state = { isFetching: false, videos: []}, action) 
+  {
+  switch (action.type)
+    {
+      case 'FETCH_VIDEOS':
+        return Object.assign({}, state, {isFetching: false, videos: action.payload})
+      case 'RECEIVE_VIDEOS':
+        return Object.assign({}, state, {isFetching: true, videos: action.payload})
+      default:
+       return state
+    }
+  } 
+
+
+
+const rootReducer = combineReducers({videos})
 
 export default rootReducer

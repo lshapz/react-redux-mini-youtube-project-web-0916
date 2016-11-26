@@ -1,17 +1,18 @@
 import React from 'react'
-const show = function ShowVideo(props){
-var videos = props.videos.map((vid, idx)=>{
-  <li key={idx}><a href="{vid}">video</a></li>
+
+export default function ShowVideo(props){
+
+
+ var vidz = props.videos.map((vid, index)=>{
+  return <li key={index}>{vid.etag}</li>
 })
 
 
+// debugger
 return(
-  <ul>{props.videos.map((item, index)=>{
-  return <li key={index}><a href="{item[1]}">Link</a></li>
 
-  })}</ul>
+  <ul>
+  {vidz}
+  </ul>
   )
-
 }
-show.defaultProps = {videos: [[1, 'https://www.youtube.com/watch?v=wRP6egIEABk']]}
-export default show

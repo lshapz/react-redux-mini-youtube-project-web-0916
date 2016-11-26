@@ -11,7 +11,9 @@
     "react-dom": "^15.4.1",
     "react-redux": "^4.4.6",
     "redux": "^3.6.0",
-    "redux-promise": "^0.5.3"
+    "redux-actions": "^1.1.0",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
