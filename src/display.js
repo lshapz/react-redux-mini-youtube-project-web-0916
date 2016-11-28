@@ -17,7 +17,7 @@ class ShowVideo extends React.Component {
     var id = event.target.id 
     // debugger
     // this.props.dispatch(newPrimary(id))
-    newPrimary(id)
+    this.props.newPrimary(id)
 
   }
 
