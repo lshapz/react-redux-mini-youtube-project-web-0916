@@ -5,25 +5,19 @@ import {bindActionCreators} from 'redux';
 
 class ShowVideo extends React.Component {
 
-// debugger
   constructor(){
     super()
     this.bigVid = this.bigVid.bind(this)
-
   }
 
   bigVid(event){
     event.preventDefault()
     var id = event.target.id 
-    // debugger
-    // this.props.dispatch(newPrimary(id))
     this.props.newPrimary(id)
-
   }
 
-
 render()
-{
+  {
    var big = this.props.videos.filter(vid=>{return vid.primary === true})
    var big_id = big[0] ? big[0].id :  "dHg50mdODFM" 
  
@@ -31,8 +25,7 @@ render()
   return <div key={index} onClick={this.bigVid} id={vid.id}>
     <p id={vid.id}>{vid.title}</p>
     <p id={vid.id}><img className={"video-item " + vid.id } id={vid.id} src={vid.thumb} alt={vid.title} /></p>
-  </div>
- })
+  </div>})
 
   return (
     <div id="container"> 

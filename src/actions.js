@@ -2,7 +2,7 @@ import axios from 'axios'
 const API_KEY = 'AIzaSyCVhtKbqqUK6f56QCySSGZ4qvhOf9rWXDM'
 const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search'
 
-  const FETCH_VIDEOS = 'FETCH_POSTS';
+  const FETCH_VIDEOS = 'FETCH_VIDEOS';
   const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
   const NEW_PRIMARY = 'NEW_PRIMARY'
 export function requestVideos(searchTerm) { 
