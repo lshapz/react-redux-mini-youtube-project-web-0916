@@ -1,0 +1,27 @@
+import { createStore, applyMiddleware } from 'redux'
+// import ReduxPromise from 'redux-promise'
+import rootReducer from './root-reducer'
+<<<<<<< HEAD
+import thunk from 'redux-thunk';
+=======
+>>>>>>> 5f34e94742c549cd30b8c4f076b2a69e5a2e8368
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+//const store = createStore(rootReducer, applyMiddleware(ReduxPromise))
+// const store = applyMiddleware(thunk)(createStore)(rootReducer)
+// export default store
+
+<<<<<<< HEAD
+const store = createStore(rootReducer, composeWithDevTools(
+  applyMiddleware(thunk),
+  // other store enhancers if any
+));
+
+export default store 
+=======
+// const store = applyMiddleware(ReduxPromise)(createStore)(rootReducer)
+const store = createStore(rootReducer, composeWithDevTools(
+    applyMiddleware(ReduxPromise)
+  ));
+export default store
+>>>>>>> 5f34e94742c549cd30b8c4f076b2a69e5a2e8368

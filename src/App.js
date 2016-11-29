@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
-import Search from './searchVideo'
-import Display from './display'
-import {connect} from 'react-redux';
+import SearchBar from './components/SearchBar'
+import ShowVideos from './components/ShowVideos'
+import { connect } from 'react-redux'
+
+
 
 class App extends Component {
 
- 
   render() {
-    // debugger
     return (
       <div className="app">
-        <h1> SEARCH YOUTUBE FOR SOME VIDEOS OR WHATEVER </h1>
-        <Search />
-        <Display /> 
+      	<h1 >Search Youtube</h1>
+        <SearchBar />
+		<ShowVideos />      
       </div>
     );
   }
 }
 
 
-
-function mapStateToProps(state) {
-  return state.videos
+function mapStateToProps(state){
+	return state
 }
 
-const connector = connect(mapStateToProps)
-const connectedComponent = connector(App)
-
-export default connectedComponent;
+export default connect(mapStateToProps)(App)
