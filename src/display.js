@@ -19,7 +19,7 @@ class ShowVideo extends React.Component {
 render()
   {
    var big = this.props.videos.filter(vid=>{return vid.primary === true})
-   var big_id = big[0] ? big[0].id :  "dHg50mdODFM" 
+   var big_id = big[0] ? big[0].id :  "2HCQfx7Dv4yHlrSyvMwksF" 
  
  var show = this.props.videos.filter(vid=>{return vid.primary === false}).map((vid, index) =>{
   return <div key={index} onClick={this.bigVid} id={vid.id}>
@@ -31,8 +31,9 @@ render()
     <div id="container"> 
     <div id="big">
               <iframe className="video-detail"
-                width="640" height="360"
-                src={'https://www.youtube.com/embed/'+ big_id } />
+                allowtransparency="true"
+                frameborder="0"
+                src={"https://embed.spotify.com/?uri=spotify:track:" + big_id  } />
 
     </div>
     <div className="thumb"> 

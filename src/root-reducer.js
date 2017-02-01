@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
 
-function reducer(state = {videos: [], primaryVidId: "REu2BcnlD34"}, action){
+function reducer(state = {videos: [], primaryVidId: "2HCQfx7Dv4yHlrSyvMwksF"}, action){
   switch (action.type) {
     case "FETCH_VIDEOS":
-	    let videos = action.payload.data.items.map((item)=>{
-	    	return {id: item.id.videoId, thumbNail: item.snippet.thumbnails.default.url}
+    // debugger
+	    let videos = action.payload.data.tracks.items.map((item)=>{
+	    	return {id: item.id, thumbNail: item.album.images[0].url}
 	    })
 	    return Object.assign({}, state, {videos: videos, primaryVidId: videos[0].id})
 	case 'UPDATE_PRIMARY':
