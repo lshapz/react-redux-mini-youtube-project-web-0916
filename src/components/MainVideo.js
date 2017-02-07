@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 export default class extends Component{
 	render(){
+    debugger
 		return(
 			<iframe id="big" className="video-detail"
                 width="640" height="360"
