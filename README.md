@@ -2,6 +2,8 @@
 
 In this mini-project, you'll build a mini version of YouTube using the YouTube API.
 
+NOTE - this branch was an experiment where I changed the Youtube API out for the Spotify one, just for kicks
+
 The functionality we want is this:
 + A user can search for a video by keyword
 + We'll fetch five videos from the YouTube API based on the search term
